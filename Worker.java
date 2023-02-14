@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Worker {
 
     private OnTaskDoneListener callback;
@@ -12,16 +10,13 @@ public class Worker {
     }
 
     public void start() {
-        Random r = new Random();
-        int caseWithWorker = r.nextInt(2) + 1;
-        if (caseWithWorker == 1) {
-            for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 100; i++) {
+            if (i == 33) {
+                errorCallback.onError("Task " + i + " is failed");
+            } else {
                 callback.onDone("Task " + i + " is done");
             }
-        } else {
-            for (int i = 1; i <= 100; i++) {
-                errorCallback.onError(i);
-            }
+
         }
     }
 }
