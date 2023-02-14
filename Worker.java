@@ -20,8 +20,7 @@ public class Worker {
             }
         } else {
             for (int i = 1; i <= 100; i++) {
-                if (i == 33) System.out.println("Task 33 is failed");
-                errorCallback.onError("Task " + i + " is done");
+                errorCallback.onError(i);
             }
         }
     }
